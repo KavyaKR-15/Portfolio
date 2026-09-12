@@ -1,1240 +1,1580 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kavya K R</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --bg: #0a0a0f;
-      --bg-card: #11111a;
-      --bg-card2: #16162299;
-      --border: rgba(140, 100, 220, 0.15);
-      --border-hover: rgba(160, 120, 240, 0.4);
-      --purple-light: #c4a8ff;
-      --purple-mid: #9b6dff;
-      --purple-strong: #7c3aed;
-      --purple-deep: #4c1d95;
-      --purple-glow: rgba(124, 58, 237, 0.18);
-      --text-primary: #f0ecff;
-      --text-muted: #8b7aa8;
-      --text-faint: #4a4060;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      background: rgba(10, 10, 15, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      color: var(--purple-light);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      transition: color 0.2s;
-      letter-spacing: 0.04em;
-    }
-
-    .nav-links a:hover {
-      color: var(--purple-light);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      padding: 5rem 2.5rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      gap: 4rem;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--purple-mid);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--purple-mid);
-    }
-
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--purple-light);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 420px;
-<<<<<<< HEAD
-      margin-bottom: 1.25rem;
-      line-height: 1.8;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-meta a {
-      color: var(--purple-light);
-      text-decoration: none;
-    }
-
-    .hero-meta a:hover {
-      text-decoration: underline;
-=======
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      padding: 0.75rem 1.75rem;
-      border-radius: 100px;
-      background: var(--purple-strong);
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background: var(--purple-mid);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--purple-glow);
-    }
-
-    .btn-outline {
-      padding: 0.75rem 1.75rem;
-      border-radius: 100px;
-      border: 1.5px solid rgba(140, 100, 220, 0.35);
-      color: var(--purple-light);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: border-color 0.2s, transform 0.15s, background 0.2s;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--purple-mid);
-      background: var(--purple-glow);
-      transform: translateY(-2px);
-    }
-
-    .hero-avatar {
-      flex-shrink: 0;
-      width: 300px;
-      height: 300px;
-      border-radius: 40% 60% 55% 45% / 45% 50% 50% 55%;
-      background: linear-gradient(135deg, #1a0f2e, #2d1b69);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1.5px solid rgba(155, 109, 255, 0.3);
-      font-family: 'DM Serif Display', serif;
-      font-size: 5rem;
-      color: var(--purple-light);
-      position: relative;
-      animation: morph 8s ease-in-out infinite;
-    }
-
-<<<<<<< HEAD
-    .avatar-photo-wrap {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: inherit;
-    }
-
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-=======
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    @keyframes morph {
-
-      0%,
-      100% {
-        border-radius: 40% 60% 55% 45% / 45% 50% 50% 55%;
-      }
-
-      50% {
-        border-radius: 55% 45% 40% 60% / 50% 55% 45% 50%;
-      }
-    }
-
-    .hero-badge {
-      position: absolute;
-      bottom: 1rem;
-      right: -1rem;
-      background: var(--bg-card);
-      border: 1.5px solid rgba(155, 109, 255, 0.3);
-      border-radius: 12px;
-      padding: 0.6rem 1rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--purple-light);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 5rem 2.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--purple-mid);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 3rem;
-      color: var(--text-primary);
-    }
-
-    .divider {
-      border: none;
-      border-top: 0.5px solid var(--border);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      line-height: 1.9;
-    }
-
-    .stat-row {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--purple-light);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .edu-list {
-      list-style: none;
-    }
-
-    .edu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      padding: 1rem 0;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .edu-degree {
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--text-primary);
-    }
-
-    .edu-school {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .edu-year {
-      font-size: 0.85rem;
-      color: var(--purple-mid);
-      font-weight: 500;
-      white-space: nowrap;
-      margin-left: 1rem;
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .skill-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-    }
-
-    .skill-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-category {
-      font-weight: 500;
-      font-size: 0.85rem;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      background: rgba(124, 58, 237, 0.18);
-      color: var(--purple-light);
-      font-weight: 500;
-      border: 0.5px solid rgba(155, 109, 255, 0.2);
-    }
-
-    .tag.soft {
-      background: rgba(196, 168, 255, 0.08);
-      color: #c4a8ff;
-      border-color: rgba(196, 168, 255, 0.2);
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 20px;
-      padding: 1.75rem;
-      transition: border-color 0.2s, transform 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--purple-strong), var(--purple-light));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .project-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-    }
-
-    .project-number {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.06em;
-    }
-
-<<<<<<< HEAD
-    .project-name-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.6rem;
-    }
-
-=======
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    .project-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      color: var(--text-primary);
-<<<<<<< HEAD
-    }
-
-    .project-status {
-      font-size: 0.65rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      background: rgba(196, 168, 255, 0.1);
-      color: var(--purple-light);
-      border: 0.5px solid rgba(196, 168, 255, 0.25);
-      font-weight: 500;
-      white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-=======
-      margin-bottom: 0.6rem;
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    }
-
-    .project-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-<<<<<<< HEAD
-    .project-desc ul {
-      margin: 0;
-      padding-left: 1.1rem;
-    }
-
-    .project-desc li {
-      margin-bottom: 0.3rem;
-    }
-
-=======
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .stack-tag {
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      border: 0.5px solid var(--border);
-      font-weight: 500;
-    }
-
-    /* CERTS */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    .cert-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      transition: border-color 0.2s;
-    }
-
-    .cert-card:hover {
-      border-color: var(--border-hover);
-    }
-
-    .cert-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--purple-mid);
-      flex-shrink: 0;
-    }
-
-    .cert-name {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .cert-issuer {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-<<<<<<< HEAD
-    /* LANGUAGES */
-    .lang-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .lang-chip {
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 0.6rem 1.4rem;
-      border-radius: 100px;
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      color: var(--text-primary);
-    }
-
-=======
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    /* CONTACT */
-    .contact-wrapper {
-      background: linear-gradient(135deg, #1a0f2e 0%, #0d0d18 60%, #16082e 100%);
-      border: 0.5px solid rgba(155, 109, 255, 0.2);
-      border-radius: 28px;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-wrapper::before {
-      content: '';
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 70%);
-      top: -100px;
-      right: -80px;
-      pointer-events: none;
-    }
-
-    .contact-wrapper::after {
-      content: '';
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(155, 109, 255, 0.1), transparent 70%);
-      bottom: -60px;
-      left: -60px;
-      pointer-events: none;
-    }
-
-    .contact-wrapper h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-
-    .contact-wrapper p {
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 100px;
-      border: 1.5px solid rgba(155, 109, 255, 0.3);
-      color: var(--purple-light);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .contact-link:hover {
-      background: rgba(124, 58, 237, 0.2);
-      border-color: var(--purple-mid);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: var(--text-faint);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        padding: 1rem 1.25rem;
-      }
-
-      .hero {
-        flex-direction: column;
-        padding: 3rem 1.25rem 2rem;
-        gap: 2rem;
-      }
-
-      .hero-avatar {
-        width: 200px;
-        height: 200px;
-        font-size: 3.5rem;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      section {
-        padding: 3.5rem 1.25rem;
-      }
-
-      .contact-wrapper {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .hero-badge {
-        right: 0;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kavya K R | Computer Science Graduate</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Kavya K R, a Computer Science and Engineering graduate passionate about AI, machine learning, web development, and software engineering."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #0b0812;
+            color: #f5f0ff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 8, 18, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "DM Serif Display", serif;
+            font-size: 1.7rem;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #b88cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cfc6df;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c69cff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            color: #b88cff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(3rem, 7vw, 5.8rem);
+            line-height: 0.98;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #b88cff;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #bcb3c9;
+            font-size: 1.08rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #9b6cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #8250ed;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #5c506b;
+            color: #eee7f7;
+        }
+
+        .btn-secondary:hover {
+            border-color: #b88cff;
+            color: #cbaaff;
+        }
+
+        /* =========================
+           PROFILE IMAGE
+        ========================= */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-wrap {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #9b6cff, #4d2c75);
+            box-shadow: 0 0 70px rgba(155, 108, 255, 0.22);
+        }
+
+        .avatar-photo-wrap {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #171021;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            margin-top: 18px;
+            display: inline-block;
+            background: #171021;
+            border: 1px solid #3d304b;
+            color: #d7c8e9;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-heading .small-title {
+            color: #b88cff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-family: "DM Serif Display", serif;
+            font-size: 2.7rem;
+        }
+
+        .section-heading p {
+            color: #a9a0b5;
+            max-width: 650px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        .about-text p {
+            color: #bdb4c8;
+            margin-bottom: 18px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            padding: 20px;
+            border: 1px solid #30263a;
+            border-radius: 12px;
+            background: #110d18;
+        }
+
+        .stat h3 {
+            color: #c69cff;
+            font-size: 1.8rem;
+        }
+
+        .stat p {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .education-card {
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 20px;
+        }
+
+        .education-item {
+            border-left: 2px solid #7651a8;
+            padding-left: 18px;
+            margin-bottom: 22px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h4 {
+            color: #eee6f5;
+            font-size: 0.98rem;
+        }
+
+        .education-item p {
+            color: #a9a0b5;
+            font-size: 0.88rem;
+        }
+
+        .education-year {
+            color: #b88cff;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        /* =========================
+           INTERNSHIP
+        ========================= */
+
+        .internship-card {
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .internship-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .internship-company {
+            color: #b88cff;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .internship-card p {
+            color: #b4aaba;
+            max-width: 750px;
+        }
+
+        .internship-year {
+            color: #9f93aa;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .skill-card h3 {
+            color: #d8c2f4;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill-tag {
+            padding: 7px 11px;
+            background: #1a1324;
+            border: 1px solid #3b3048;
+            color: #cfc4d9;
+            border-radius: 7px;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #665080;
+        }
+
+        .project-name-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .project-name {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #f1eafa;
+        }
+
+        .project-status {
+            font-size: 0.7rem;
+            color: #b88cff;
+            border: 1px solid #624a7c;
+            border-radius: 20px;
+            padding: 4px 8px;
+            white-space: nowrap;
+        }
+
+        .project-desc {
+            color: #aaa0b4;
+            font-size: 0.9rem;
+            margin-bottom: 17px;
+        }
+
+        .project-stack {
+            color: #b88cff;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .cert-card {
+            padding: 19px;
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 12px;
+        }
+
+        .cert-card h3 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            color: #9f94aa;
+            font-size: 0.82rem;
+        }
+
+        /* =========================
+           LANGUAGES
+        ========================= */
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language-card {
+            min-width: 160px;
+            padding: 20px;
+            text-align: center;
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 12px;
+        }
+
+        .language-card h3 {
+            color: #d9c6ef;
+        }
+
+        .language-card p {
+            color: #91869c;
+            font-size: 0.82rem;
+            margin-top: 4px;
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievement-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .achievement-item {
+            background: #110d18;
+            border: 1px solid #30263a;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .achievement-item h3 {
+            font-size: 1rem;
+            color: #e8dff1;
+            margin-bottom: 5px;
+        }
+
+        .achievement-item p {
+            color: #a89ead;
+            font-size: 0.87rem;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-card {
+            background: linear-gradient(
+                135deg,
+                rgba(155, 108, 255, 0.13),
+                rgba(17, 13, 24, 0.95)
+            );
+            border: 1px solid #3d2e4d;
+            border-radius: 18px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            font-family: "DM Serif Display", serif;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: #aaa0b3;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-link {
+            padding: 10px 17px;
+            border: 1px solid #44354f;
+            border-radius: 8px;
+            color: #d7cbe0;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: #a879e8;
+            color: #c69cff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #211b28;
+            padding: 25px 0;
+            text-align: center;
+            color: #766c80;
+            font-size: 0.82rem;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.7s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .avatar-wrap {
+                width: 230px;
+                height: 230px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .internship-card {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-card {
+                padding: 28px 20px;
+            }
+
+            .project-name-row {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-logo">KK</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-  <div class="hero">
-    <div class="hero-text">
-<<<<<<< HEAD
-      <div class="hero-eyebrow">Computer Science and Engineering Graduate</div>
-=======
-      <div class="hero-eyebrow">Computer Science Engineer</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-      <h1>Hi, I'm <em>Kavya K R</em></h1>
-      <p class="hero-desc">Aspiring Computer Science graduate passionate about developing innovative software solutions
-        using AI, machine learning, and modern web technologies.</p>
-      <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-avatar">
-<<<<<<< HEAD
-      <div class="avatar-photo-wrap">
-        <img src="blazer.jpeg" alt="Kavya K R" class="avatar-img">
-      </div>
-=======
-      ✦
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-      <div class="hero-badge">B.E CSE · 2027</div>
-    </div>
-  </div>
+    <nav>
+        <div class="container nav-inner">
 
-  <hr class="divider">
+            <a href="#home" class="logo">
+                Kavya<span>.</span>
+            </a>
 
-  <section id="about" class="fade-up">
-    <div class="section-label">Who I am</div>
-    <div class="section-title">About Me</div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I am an aspiring Computer Science graduate who is passionate about developing innovative software solutions
-          using AI, machine learning, and modern web technologies. I am seeking an opportunity to contribute my
-          technical expertise, problem-solving abilities, and creativity to build impactful digital products while
-          continuously learning and growing in a dynamic environment.</p>
-        <p>My academic path includes a B.E. in Computer Science and Engineering at Dr. N.G.P. Institute of Technology,
-<<<<<<< HEAD
-          alongside a diverse set of certifications from NPTEL, Coursera, Udemy, MongoDB, and NVIDIA.</p>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="stat-num">8</div>
-            <div class="stat-label">Projects Built</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">8</div>
-=======
-          alongside a diverse set of certifications from NPTEL, Coursera, Udemy, and MongoDB.</p>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="stat-num">7</div>
-            <div class="stat-label">Projects Built</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">7</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-            <div class="stat-label">Certifications</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">3</div>
-            <div class="stat-label">Languages Known</div>
-          </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#internship">Internship</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
         </div>
-      </div>
-      <div>
-        <ul class="edu-list">
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">B.E Computer Science and Engineering</div>
-              <div class="edu-school">Dr. N.G.P. Institute of Technology</div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div class="hero-content fade-up">
+
+                <div class="eyebrow">
+                    Computer Science & Engineering Graduate
+                </div>
+
+                <h1>
+                    Hi, I'm <span>Kavya K R</span>
+                </h1>
+
+                <p class="hero-description">
+                    Aspiring Computer Science graduate passionate about developing
+                    innovative software solutions using AI, machine learning,
+                    and modern web technologies.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Get in Touch
+                    </a>
+                </div>
+
             </div>
-<<<<<<< HEAD
-            <div class="edu-year">2023–2027</div>
-=======
-            <div class="edu-year">2027</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">12th Standard</div>
-              <div class="edu-school">PSG Sarvajana Higher Secondary School</div>
+
+
+            <div class="hero-image fade-up">
+
+                <div>
+                    <div class="avatar-wrap">
+
+                        <div class="avatar-photo-wrap">
+                            <img
+                                src="blazer.jpeg"
+                                alt="Kavya K R"
+                                class="avatar-img"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="badge">
+                        B.E CSE · 2027
+                    </div>
+                </div>
+
             </div>
-<<<<<<< HEAD
-            <div class="edu-year">2022–2023</div>
-=======
-            <div class="edu-year">2023</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">10th Standard</div>
-<<<<<<< HEAD
-              <div class="edu-school">National Model Higher Secondary School</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">About Me</div>
+                <h2>Building with curiosity.</h2>
+                <p>
+                    A quick overview of my education, interests, and journey
+                    in technology.
+                </p>
             </div>
-            <div class="edu-year">2020–2021</div>
-=======
-              <div class="edu-school">National Model Matriculation Higher Secondary School</div>
+
+
+            <div class="about-grid">
+
+                <div class="about-text fade-up">
+
+                    <p>
+                        I am a B.E. Computer Science and Engineering student
+                        at Dr. N.G.P. Institute of Technology with a strong
+                        interest in artificial intelligence, machine learning,
+                        software development, and modern web technologies.
+                    </p>
+
+                    <p>
+                        I enjoy building practical projects that combine
+                        technology with real-world problem solving. My
+                        experience includes web development, AI-powered
+                        applications, computer vision, databases, and
+                        cloud-based technologies.
+                    </p>
+
+                    <div class="stats">
+
+                        <div class="stat">
+                            <h3>8</h3>
+                            <p>Projects Built</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3>8</h3>
+                            <p>Certifications</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3>3</h3>
+                            <p>Languages Known</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="education-card fade-up">
+
+                    <h3>Education</h3>
+
+                    <div class="education-item">
+                        <h4>
+                            B.E Computer Science and Engineering
+                        </h4>
+                        <p>
+                            Dr. N.G.P. Institute of Technology
+                        </p>
+                        <div class="education-year">
+                            2023–2027
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>
+                            12th Standard
+                        </h4>
+                        <p>
+                            PSG Sarvajana Higher Secondary School
+                        </p>
+                        <div class="education-year">
+                            2022–2023
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>
+                            10th Standard
+                        </h4>
+                        <p>
+                            National Model Higher Secondary School
+                        </p>
+                        <div class="education-year">
+                            2020–2021
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>
+                            B.A Hindi
+                        </h4>
+                        <p>
+                            Dakshin Bharat Hindi Prachar Sabha, Madras
+                        </p>
+                        <div class="education-year">
+                            2020
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="edu-year">2021</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">B.A Hindi</div>
-<<<<<<< HEAD
-              <div class="edu-school">Dakshin Bharat Hindi Prachar Sabha, Madras</div>
-=======
-              <div class="edu-school">Dakshina Bharat Hindi Prachar Sabha, Madras</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTERNSHIP
+    ========================= -->
+
+    <section id="internship">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Experience</div>
+                <h2>Internship</h2>
             </div>
-            <div class="edu-year">2020</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <hr class="divider">
 
-  <section id="internship" class="fade-up">
-    <div class="section-label">Professional Experience</div>
-    <div class="section-title">Internship</div>
-    <div class="about-grid" style="grid-template-columns: 1fr;">
-      <div class="skill-card"
-        style="padding: 2.25rem; display: flex; flex-direction: column; gap: 0.5rem; border-color: rgba(155,109,255,0.25);">
-        <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 0.5rem;">
-          <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--text-primary);">Web
-<<<<<<< HEAD
-            Developer Intern</h3>
-          <span
-            style="font-size: 0.85rem; color: var(--purple-light); background: rgba(124,58,237,0.18); padding: 4px 12px; border-radius: 100px; font-weight: 500;">2025</span>
-        </div>
-        <div style="font-size: 0.95rem; color: var(--purple-mid); font-weight: 500;">Appin Technology, Coimbatore</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.8;">
-          Completed hands-on training in core web development paradigms and built a responsive "Summer Camp Admission"
-          web application handling registrations, form validation, and user admissions for seasonal camps.
-=======
-            Development Intern</h3>
-          <span
-            style="font-size: 0.85rem; color: var(--purple-light); background: rgba(124,58,237,0.18); padding: 4px 12px; border-radius: 100px; font-weight: 500;">15
-            Days</span>
-        </div>
-        <div style="font-size: 0.95rem; color: var(--purple-mid); font-weight: 500;">Appin Technology, Coimbatore</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.8;">
-          Attended and successfully completed hands-on training focusing on core Web Development paradigms, responsive
-          frontend design, and practical industry workflows.
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-        </p>
-      </div>
-    </div>
-  </section>
+            <div class="internship-card fade-up">
 
-  <hr class="divider">
+                <div>
 
-  <section id="skills" class="fade-up">
-    <div class="section-label">What I know</div>
-    <div class="section-title">Skills</div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">🐍</div>
-        <div class="skill-category">Programming Languages</div>
-        <div class="skill-tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">Java</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">🌐</div>
-        <div class="skill-category">Web & Frontend</div>
-        <div class="skill-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
-            class="tag">JavaScript</span><span class="tag">React.js</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">🛠️</div>
-        <div class="skill-category">Backend, Databases & AI</div>
-        <div class="skill-tags"><span class="tag">Node.js</span><span class="tag">Express.js</span><span
-<<<<<<< HEAD
-            class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span
-            class="tag">Groq AI</span><span class="tag">OpenCV</span><span class="tag">Tkinter</span><span
-            class="tag">Power BI</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-category">Tools & Deployment</div>
-        <div class="skill-tags"><span class="tag">Git</span><span class="tag">GitHub</span><span
-            class="tag">Docker</span><span class="tag">Render</span><span class="tag">Netlify</span></div>
-=======
-            class="tag">MongoDB</span><span class="tag">SQLite</span><span class="tag">Groq AI</span><span
-            class="tag">OpenCV</span><span class="tag">Tkinter</span><span class="tag">Power BI</span></div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">💬</div>
-        <div class="skill-category">Soft Skills & Interests</div>
-        <div class="skill-tags"><span class="tag soft">Communication</span><span class="tag soft">Leadership</span><span
-            class="tag soft">Time Management</span><span class="tag soft">Problem Solving</span></div>
-      </div>
-    </div>
-  </section>
+                    <div class="internship-title">
+                        Web Developer Intern
+                    </div>
 
-  <hr class="divider">
+                    <div class="internship-company">
+                        Appin Technology, Coimbatore
+                    </div>
 
-  <section id="projects" class="fade-up">
-    <div class="section-label">What I've built</div>
-    <div class="section-title">Projects</div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-number">01</div>
-<<<<<<< HEAD
-        <div class="project-name-row">
-          <div class="project-name">LinkTrack</div>
-        </div>
-        <div class="project-desc">Designed a responsive MERN stack app with user and admin dashboards featuring full CRUD operations.</li>
-            Creates short URLs from long links, tracks click counts and analytics, and displays URL history.
-        </div>
-        <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Node.js</span><span
-            class="stack-tag">Express.js</span><span class="stack-tag">MongoDB Atlas</span><span
-            class="stack-tag">JWT</span><span class="stack-tag">Tailwind CSS</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">02</div>
-        <div class="project-name-row">
-          <div class="project-name">AI-Based Crop Recommendation Chatbot</div>
-        </div>
-        <div class="project-desc">
-          Developed an AI-powered multilingual chatbot that provides crop recommendations and agricultural
-              guidelines.Implemented speech-to-text, language translation, and text-to-speech for seamless interaction.
-        </div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Streamlit</span><span
-            class="stack-tag">Groq AI</span><span class="stack-tag">Speech Recognition</span><span
-            class="stack-tag">gTTS</span><span class="stack-tag">Deep Translator</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">03</div>
-        <div class="project-name-row">
-          <div class="project-name">Hand Talk AI</div>
-        </div>
-        <div class="project-desc">
-          Enabled live gesture recognition to improve real-time sign language translation using computer vision
-              and deep learning. Optimized the image processing pipeline for real-time prediction.
-        </div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">OpenCV</span><span
-            class="stack-tag">MediaPipe</span><span class="stack-tag">TensorFlow</span><span
-            class="stack-tag">Keras</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">04</div>
-        <div class="project-name-row">
-          <div class="project-name">Moon Phase Detector</div>
-        </div>
-=======
-        <div class="project-name">LinkTrack</div>
-        <div class="project-desc">A MERN stack URL shortener application featuring short URL creation, automatic
-          redirection, click count analytics, and a management dashboard.</div>
-        <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">Express.js</span><span
-            class="stack-tag">Node.js</span><span class="stack-tag">MongoDB</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">02</div>
-        <div class="project-name">AI based Crop Recommendation</div>
-        <div class="project-desc">A Python-based chatbot integration using the Groq AI model to offer smart,
-          context-aware suggestions and crop advice to farmers.</div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Groq AI</span><span
-            class="stack-tag">Chatbot</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">03</div>
-        <div class="project-name">Hand Talk AI</div>
-        <div class="project-desc">A web application utilizing Python to detect sign gestures and translate them into
-          readable text, improving communication accessibility.</div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Sign
-            Detection</span><span class="stack-tag">Web App</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">04</div>
-        <div class="project-name">Moon Phase Detector</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-        <div class="project-desc">An intelligent image classification system that analyzes and classifies lunar phases
-          from input images using advanced computer vision techniques.</div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">OpenCV</span><span
-            class="stack-tag">Image Processing</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">05</div>
-<<<<<<< HEAD
-        <div class="project-name-row">
-          <div class="project-name">Hospital Management System</div>
-        </div>
-=======
-        <div class="project-name">Hospital Management System</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-        <div class="project-desc">A GUI-based desktop application designed for managing patient files, doctor schedules,
-          appointments, and medical billing records.</div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Tkinter</span><span
-            class="stack-tag">SQLite</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">06</div>
-<<<<<<< HEAD
-        <div class="project-name-row">
-          <div class="project-name">Book Management System</div>
-        </div>
-=======
-        <div class="project-name">Book Management System</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-        <div class="project-desc">A GUI-based library database application to track books, register users, and
-          efficiently manage active borrower records.</div>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Tkinter</span><span
-            class="stack-tag">SQLite</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">07</div>
-<<<<<<< HEAD
-        <div class="project-name-row">
-          <div class="project-name">Summer Camp Admission Page</div>
-        </div>
-        <div class="project-desc">A responsive web landing page built during the internship at Appin Technology,
-          handling registrations, form validation, and user admissions for seasonal camps.</div>
-=======
-        <div class="project-name">Summer Camp Admission Page</div>
-        <div class="project-desc">A responsive web landing page that handles registrations, forms validation, and user
-          admissions for seasonal camps.</div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span
-            class="stack-tag">JavaScript</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-number">08</div>
-<<<<<<< HEAD
-        <div class="project-name-row">
-          <div class="project-name">NEXUS AI – Intelligent Log Analysis & Root Cause Detection</div>
-          <span class="project-status">In Progress</span>
-        </div>
-        <div class="project-desc">
-          AI-powered log analysis platform that automates log parsing, anomaly detection, and root cause
-              analysis. Integrates DevOps platforms — Jenkins, Kubernetes, Docker, AWS CloudWatch, Prometheus, and GitHub
-              Actions — for centralized monitoring.
-        </div>
-        <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">FastAPI</span><span
-            class="stack-tag">PostgreSQL</span><span class="stack-tag">Python</span><span
-            class="stack-tag">LangChain</span><span class="stack-tag">OpenAI/GroqLLM</span><span
-            class="stack-tag">Docker</span></div>
-=======
-        <div class="project-name">NEXUS AI- Intelligent Log Analysis & Root Cause Detection</div>
-        <div class="project-desc">AI-powered log analysis platform that automates log parsing, anomaly detection and 
-root cause analysis</div>
-        <div class="project-stack"><span class="stack-tag">React.js</span><span class="stack-tag">OpenAI/GroqLLM</span><span
-            class="stack-tag">PostgreSQL</span><span class="stack-tag">Python</span><span class="stack-tag">Docker
-  
-            </span></div>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-      </div>
-    </div>
-  </section>
+                    <p>
+                        Completed hands-on training in core web development
+                        paradigms and built a responsive
+                        <strong>Summer Camp Admission</strong>
+                        web application handling registrations,
+                        form validation, and user admissions for
+                        seasonal camps.
+                    </p>
 
-  <hr class="divider">
+                </div>
 
-  <section id="certifications" class="fade-up">
-    <div class="section-label">Credentials</div>
-    <div class="section-title">Certifications</div>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Power BI Data Analyst Associate</div>
-          <div class="cert-issuer">Microsoft · NASSCOM</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Responsible and Safe AI Systems</div>
-          <div class="cert-issuer">NPTEL · 50% Score</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Cloud Computing</div>
-          <div class="cert-issuer">NPTEL · Elite (64%)</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Introduction to Internet of Things</div>
-          <div class="cert-issuer">NPTEL · Elite Silver (75%)</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Renewable Energy Technology Fundamentals</div>
-          <div class="cert-issuer">Coursera</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">GenAI for Professionals</div>
-          <div class="cert-issuer">Udemy</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">Introduction to AI and Vector Search</div>
-          <div class="cert-issuer">MongoDB</div>
-        </div>
-      </div>
-<<<<<<< HEAD
-      <div class="cert-card">
-        <div class="cert-dot"></div>
-        <div>
-          <div class="cert-name">NVIDIA-Certified Professional: InfiniBand (NCP-IB)</div>
-          <div class="cert-issuer">InfiniBand Fundamentals for AI & HPC Data Centers · Udemy</div>
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="internship-year">
+                    2025
+                </div>
 
-  <hr class="divider">
-
-  <section id="languages" class="fade-up">
-    <div class="section-label">Communication</div>
-    <div class="section-title">Languages Known</div>
-    <div class="lang-row">
-      <div class="lang-chip">English</div>
-      <div class="lang-chip">Tamil</div>
-      <div class="lang-chip">Hindi</div>
-=======
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <section id="achievements" class="fade-up">
-    <div class="section-label">Extracurriculars</div>
-    <div class="section-title">Co-curricular Activities</div>
-    <div class="about-grid" style="grid-template-columns: 1fr;">
-      <div>
-        <ul class="edu-list">
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">Project Expo: Hand Talk AI</div>
-              <div class="edu-school">Presented our sign language tool in Project Expo at Dr. N.G.P. Institute of
-                Technology</div>
             </div>
-            <div class="edu-year">Expo</div>
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">Paper Presentation: SmartOps360</div>
-              <div class="edu-school">Presented on "SmartOps360" conducted by the MSME sector at Dr. N.G.P. Institute of
-                Technology</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Technical Skills</div>
+                <h2>Tools I work with.</h2>
             </div>
-            <div class="edu-year">Presentation</div>
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">Paper Presentation: Automatic Sign Detection</div>
-              <div class="edu-school">Presented research paper at Sri Ramakrishna Engineering College</div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card fade-up">
+
+                    <h3>Programming</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card fade-up">
+
+                    <h3>Web & Frontend</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card fade-up">
+
+                    <h3>Backend, Databases & AI</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Groq AI</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">Tkinter</span>
+                        <span class="skill-tag">Power BI</span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card fade-up">
+
+                    <h3>Tools & Deployment</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Render</span>
+                        <span class="skill-tag">Netlify</span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card fade-up">
+
+                    <h3>Soft Skills</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Problem Solving</span>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="edu-year">Presentation</div>
-          </li>
-          <li class="edu-item">
-            <div>
-              <div class="edu-degree">Workshop: Front-end Development</div>
-              <div class="edu-school">Attended technical workshop at Rathinam Institute of Technology</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Projects</div>
+                <h2>Things I've built.</h2>
+                <p>
+                    A collection of projects demonstrating my skills in
+                    software development, AI, computer vision, and web technologies.
+                </p>
             </div>
-            <div class="edu-year">Workshop</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <hr class="divider">
 
-  <section id="contact" class="fade-up" style="padding-top: 0;">
-    <div class="contact-wrapper">
-      <h2>Let's Connect</h2>
-      <p>Open to internships, collaborations, and interesting conversations.</p>
-      <div class="contact-links">
-        <a href="mailto:radhakavya68@gmail.com" class="contact-link">✉ radhakavya68@gmail.com</a>
-        <a href="https://www.linkedin.com/in/kavya-kr-973281291" target="_blank" class="contact-link">in LinkedIn</a>
-        <a href="https://github.com/KavyaKR-15" target="_blank" class="contact-link">⌥ GitHub</a>
-      </div>
-    </div>
-  </section>
+            <div class="projects-grid">
 
-  <footer>Made with care · Kavya K R · 2026</footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
+                <!-- Project 1 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            LinkTrack
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Designed a responsive MERN stack app with user and
+                        admin dashboards featuring full CRUD operations.
+                        Creates short URLs from long links, tracks click
+                        counts and analytics, and displays URL history.
+                    </div>
+
+                    <div class="project-stack">
+                        React.js · Node.js · Express.js · MongoDB Atlas ·
+                        JWT · Tailwind CSS
+                    </div>
+
+                </div>
+
+
+                <!-- Project 2 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            AI-Based Crop Recommendation Chatbot
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Developed a multilingual AI chatbot that provides
+                        crop recommendations and agricultural guidelines.
+                        Includes speech-to-text, language translation,
+                        and text-to-speech capabilities.
+                    </div>
+
+                    <div class="project-stack">
+                        Python · Streamlit · Groq AI · Speech Recognition ·
+                        gTTS · Deep Translator
+                    </div>
+
+                </div>
+
+
+                <!-- Project 3 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            Hand Talk AI
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Developed a live gesture recognition application
+                        for real-time sign language translation using
+                        computer vision and deep learning techniques.
+                    </div>
+
+                    <div class="project-stack">
+                        Python · OpenCV · MediaPipe · TensorFlow · Keras
+                    </div>
+
+                </div>
+
+
+                <!-- Project 4 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            Moon Phase Detector
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Built an intelligent image classification system
+                        for identifying different lunar phases using
+                        image processing techniques.
+                    </div>
+
+                    <div class="project-stack">
+                        Python · OpenCV · Image Processing
+                    </div>
+
+                </div>
+
+
+                <!-- Project 5 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            Hospital Management System
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Developed a GUI-based hospital management application
+                        for maintaining patient files, doctor schedules,
+                        appointments, and medical billing.
+                    </div>
+
+                    <div class="project-stack">
+                        Python · Tkinter · SQLite
+                    </div>
+
+                </div>
+
+
+                <!-- Project 6 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            Book Management System
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Created a GUI-based library database system to
+                        manage books, users, and borrower records.
+                    </div>
+
+                    <div class="project-stack">
+                        Python · Tkinter · SQLite
+                    </div>
+
+                </div>
+
+
+                <!-- Project 7 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+                        <div class="project-name">
+                            Summer Camp Admission Page
+                        </div>
+                    </div>
+
+                    <div class="project-desc">
+                        Built a responsive web landing page during my
+                        Appin Technology internship with registration,
+                        form validation, and user admission functionality.
+                    </div>
+
+                    <div class="project-stack">
+                        HTML · CSS · JavaScript
+                    </div>
+
+                </div>
+
+
+                <!-- Project 8 -->
+
+                <div class="project-card fade-up">
+
+                    <div class="project-name-row">
+
+                        <div class="project-name">
+                            NEXUS AI – Intelligent Log Analysis & Root Cause Detection
+                        </div>
+
+                        <div class="project-status">
+                            In Progress
+                        </div>
+
+                    </div>
+
+                    <div class="project-desc">
+                        AI-powered log analysis platform that automates
+                        log parsing, anomaly detection, and root cause
+                        analysis. Integrates DevOps platforms including
+                        Jenkins, Kubernetes, Docker, AWS CloudWatch,
+                        Prometheus, and GitHub Actions for centralized
+                        monitoring.
+                    </div>
+
+                    <div class="project-stack">
+                        React.js · FastAPI · PostgreSQL · Python ·
+                        LangChain · OpenAI/Groq LLM · Docker
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================= -->
+
+    <section id="certifications">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Certifications</div>
+                <h2>Learning beyond the classroom.</h2>
+            </div>
+
+
+            <div class="certifications-grid">
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Power BI Data Analyst Associate
+                    </h3>
+                    <p>
+                        Microsoft · NASSCOM
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Responsible and Safe AI Systems
+                    </h3>
+                    <p>
+                        NPTEL · 50% Score
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Cloud Computing
+                    </h3>
+                    <p>
+                        NPTEL · Elite (64%)
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Introduction to Internet of Things
+                    </h3>
+                    <p>
+                        NPTEL · Elite Silver (75%)
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Renewable Energy Technology Fundamentals
+                    </h3>
+                    <p>
+                        Coursera
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        GenAI for Professionals
+                    </h3>
+                    <p>
+                        Udemy
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        Introduction to AI and Vector Search
+                    </h3>
+                    <p>
+                        MongoDB
+                    </p>
+                </div>
+
+
+                <div class="cert-card fade-up">
+                    <h3>
+                        NVIDIA-Certified Professional: InfiniBand (NCP-IB)
+                    </h3>
+                    <p>
+                        InfiniBand Fundamentals for AI & HPC Data Centers · Udemy
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LANGUAGES
+    ========================= -->
+
+    <section id="languages">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Languages</div>
+                <h2>Languages I speak.</h2>
+            </div>
+
+
+            <div class="languages">
+
+                <div class="language-card fade-up">
+                    <h3>English</h3>
+                    <p>Professional</p>
+                </div>
+
+                <div class="language-card fade-up">
+                    <h3>Tamil</h3>
+                    <p>Native</p>
+                </div>
+
+                <div class="language-card fade-up">
+                    <h3>Hindi</h3>
+                    <p>Working Proficiency</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================= -->
+
+    <section id="achievements">
+
+        <div class="container">
+
+            <div class="section-heading fade-up">
+                <div class="small-title">Co-curricular</div>
+                <h2>Beyond academics.</h2>
+            </div>
+
+
+            <div class="achievement-list">
+
+
+                <div class="achievement-item fade-up">
+
+                    <h3>
+                        Project Expo: Hand Talk AI
+                    </h3>
+
+                    <p>
+                        Presented a sign language recognition tool at
+                        Dr. N.G.P. Institute of Technology.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-item fade-up">
+
+                    <h3>
+                        Paper Presentation: SmartOps360
+                    </h3>
+
+                    <p>
+                        Presented a paper focused on the MSME sector at
+                        Dr. N.G.P. Institute of Technology.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-item fade-up">
+
+                    <h3>
+                        Paper Presentation: Automatic Sign Detection
+                    </h3>
+
+                    <p>
+                        Presented research work at Sri Ramakrishna
+                        Engineering College.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-item fade-up">
+
+                    <h3>
+                        Workshop: Front-end Development
+                    </h3>
+
+                    <p>
+                        Participated in a front-end development workshop
+                        at Rathinam Institute of Technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-card fade-up">
+
+                <h2>Let's connect.</h2>
+
+                <p>
+                    I'm open to opportunities, internships, collaborations,
+                    and interesting software development projects.
+                </p>
+
+
+                <div class="contact-links">
+
+                    <a
+                        href="mailto:radhakavya68@gmail.com"
+                        class="contact-link"
+                    >
+                        Email
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/kavya-kr-973281291"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-link"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="https://github.com/KavyaKR-15"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-link"
+                    >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+        Made with care · Kavya K R · 2026
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        document.querySelectorAll(".fade-up").forEach((element) => {
+            observer.observe(element);
+        });
+
+    </script>
 
 </body>
-
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 6097ad536d8d63a54ca9f5561402252396ac4c03
